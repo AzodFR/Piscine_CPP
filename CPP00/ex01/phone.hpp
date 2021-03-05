@@ -7,4 +7,5 @@ int override_contact(int *i, Contact *all);
 
 Contact add(Contact contact);
 void search(Contact *all, int prec);
+void    logo(std::string s);
 #endif

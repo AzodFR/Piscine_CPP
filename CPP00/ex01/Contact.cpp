@@ -18,7 +18,10 @@ void Contact::set_first_name(void)
     while (std::getline(std::cin, this->first_name))
     {
         if (this->first_name.empty() || this->first_name.find_first_of("0123456789") != std::string::npos)
-            std::cout << "\e[93mWrong first name ! Try again." << std::endl << "\e[0mFirst name: ";
+            if(this->first_name.empty())
+                std::cout << "\e[91mWrong First name (Must not be empty) ! Try again." << std::endl << "\e[0mFirst name: ";
+            else
+                std::cout << "\e[91mWrong First name (Must not contains numbers) ! Try again." << std::endl << "\e[0mFirst name: ";
         else
          break;
     }
@@ -36,7 +39,10 @@ void Contact::set_last_name(void)
     while (std::getline(std::cin, this->last_name))
     {
         if (this->last_name.empty() || this->last_name.find_first_of("0123456789") != std::string::npos)
-            std::cout << "\e[93mWrong last name ! Try again." << std::endl << "\e[0mLast name: ";
+            if (this->last_name.empty())
+                std::cout << "\e[91mWrong Last name (Must not be empty) ! Try again." << std::endl << "\e[0mLast name: ";
+            else
+                std::cout << "\e[91mWrong Last name (Must not contains numbers) ! Try again." << std::endl << "\e[0mLast name: ";
         else
             break;
     }
@@ -49,18 +55,25 @@ std::string Contact::get_last_name(void)
 
 void Contact::show_all(int i)
 {
-    std::string space = "                    ";
+    std::string space = "          ";
     int size;
 
     std::cout << "|" << i << "  |";
     size = this->get_first_name().size();
-    if (size > 20)
-        size = 20;
-    std::cout << this->get_first_name().substr(0, 20) <<  space.substr(0, 20 - size) << "|";
+    if (size > 10)
+        std::cout  << this->get_first_name().substr(0, 9) << ".|";
+    else
+    std::cout  <<  space.substr(0, 10 - size) << this->get_first_name().substr(0, 10) << "|";
     size = this->get_last_name().size();
-    if (size > 19)
-        size = 19;
-    std::cout << this->get_last_name().substr(0, 19) <<  space.substr(0, 19 - size) << "|";
+    if (size > 10)
+        std::cout << this->get_last_name().substr(0, 9) << ".|";
+    else
+        std::cout <<  space.substr(0, 10 - size) << this->get_last_name().substr(0, 10) << "|";
+    size = this->get_login().size();
+    if (size > 10)
+        std::cout <<  this->get_login().substr(0, 9) << ".|";
+    else
+        std::cout <<  space.substr(0, 10 - size) << this->get_login().substr(0, 10) << "|";
     std::cout << std::endl;
 }
 
@@ -73,7 +86,16 @@ void Contact::set_nickname(void)
 void Contact::set_login(void)
 {
     std::cout << "\e[0mLogin: ";
-    std::getline(std::cin, this->login);
+      while (std::getline(std::cin, this->login))
+    {
+        if (this->login.empty() || this->login.find_first_of("0123456789") != std::string::npos)
+            if (this->login.empty())
+                std::cout << "\e[91mWrong Login (Must not be empty) ! Try again." << std::endl << "\e[0mLogin: ";
+            else
+             std::cout << "\e[91mWrong Login (Must not contains numbers) ! Try again." << std::endl << "\e[0mLogin: ";
+        else
+            break;
+    }
 }
 
 void Contact::set_postal(void)
@@ -88,7 +110,7 @@ void Contact::set_email(void)
     while (std::getline(std::cin, this->email))
     {
         if (!this->email.empty() && this->email.find("@") == std::string::npos)
-            std::cout << "\e[93mWrong email ! Try again." << std::endl << "\e[0mEmail: ";
+            std::cout << "\e[91mWrong email (Missing '@')! Try again." << std::endl << "\e[0mEmail: ";
         else
             break;
     }
@@ -97,11 +119,10 @@ void Contact::set_email(void)
 void Contact::set_phone(void)
 {
     std::cout << "\e[0mPhone Number: ";
-    int i = -1;
     while (std::getline(std::cin, this->phone))
     {
         if (!this->phone.empty() && !this->phone.find_first_not_of("0123456789"))
-            std::cout << "\e[93mWrong phone number ! Try again." << std::endl << "\e[0mPhone Number: ";
+            std::cout << "\e[91mWrong phone number (Must only contains numbers) ! Try again." << std::endl << "\e[0mPhone Number: ";
         else
             break;
     }
@@ -113,7 +134,7 @@ void Contact::set_birth(void)
     while (std::getline(std::cin, this->birth))
     {
         if (!this->birth.empty() && (!this ->birth.find_last_not_of("0123456789") ||this->birth.size() < 8))
-            std::cout << "\e[93mWrong birthdate ! Try again." << std::endl << "\e[0mBirthdate (ddMMYYYY): ";
+            std::cout << "\e[91mWrong birthdate (Please follow the given format) ! Try again." << std::endl << "\e[0mBirthdate (ddMMYYYY): ";
         else
             break;
     }
