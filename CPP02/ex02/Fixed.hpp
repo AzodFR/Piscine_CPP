@@ -20,10 +20,10 @@ class Fixed {
 		int operator>=(const Fixed&) const;
 		int operator==(const Fixed&) const;
 		int operator!=(const Fixed&) const;
-		float operator+(const Fixed&);
-		float operator-(const Fixed&);
-		float operator*(const Fixed&);
-		float operator/(const Fixed&);
+		float operator+(const Fixed&) const;
+		float operator-(const Fixed&) const;
+		float operator*(const Fixed&) const;
+		float operator/(const Fixed&) const;
 		Fixed& operator++(void);
 		Fixed operator++(int);
 		Fixed& operator--(void);
@@ -34,6 +34,8 @@ class Fixed {
 		void	setRawBits(int const);
 		float	toFloat(void) const;
 		int		toInt(void) const;
+		static int min(Fixed &, Fixed &);
+		static int max(Fixed &, Fixed &);
 };
 
 std::ostream &operator<<(std::ostream &, const Fixed&);

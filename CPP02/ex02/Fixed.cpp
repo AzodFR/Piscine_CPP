@@ -52,22 +52,22 @@ int Fixed::operator!=(const Fixed& other) const
 	return (this->toFloat() != other.toFloat());
 }
 
-float Fixed::operator+(const Fixed& other)
+float Fixed::operator+(const Fixed& other) const
 {
 	return (this->toFloat() + other.toFloat());
 }
 
-float Fixed::operator-(const Fixed& other)
+float Fixed::operator-(const Fixed& other) const
 {
 	return (this->toFloat() - other.toFloat());
 }
 
-float Fixed::operator*(const Fixed& other)
+float Fixed::operator*(const Fixed& other) const
 {
 	return (this->toFloat() * other.toFloat());
 }
 
-float Fixed::operator/(const Fixed& other)
+float Fixed::operator/(const Fixed& other) const
 {
 	return (this->toFloat() / other.toFloat());
 }
@@ -132,6 +132,20 @@ const Fixed &Fixed::max(const Fixed &a,const Fixed &b)
 	if (a > b)
 		return (a);
 	return (b);
+}
+
+int Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a.toInt());
+	return (b.toInt());
+}
+
+int Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return (a.toInt());
+	return (b.toInt());
 }
 
 Fixed::~Fixed(void)
