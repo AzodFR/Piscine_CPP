@@ -37,7 +37,7 @@ std::ostream &operator<<(std::ostream &output, const Fixed& f)
 
 float Fixed::toFloat(void) const
 {
-	return (float(this->value / (32 * this->bits)));
+	return ((float)this->value / (float)(32 * this->bits));
 }
 
 int Fixed::toInt(void) const
