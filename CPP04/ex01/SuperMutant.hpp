@@ -6,7 +6,7 @@
 class SuperMutant : public Enemy
 {
 	public:
-		SuperMutant(std::string const &);
+		SuperMutant(void);
 		virtual ~SuperMutant(void);
 		void takeDamage(int);
 };

@@ -1,18 +1,24 @@
 #include "Enemy.hpp"
 
-Enemy::Enemy(std::string const &name, int hp, std::string const &type) : _name(name), _hp(hp), _type(type)
+Enemy::Enemy(const std::string &type, int hp) : _hp(hp), _type(type)
 {
 }
-Enemy::Enemy(const Enemy&object) : _name(object.getName()), _hp(object.getHP()), _type(object.getType())
-{
-}
+    
 Enemy &Enemy::operator=(const Enemy &object)
 {
-	return (*this);
+    _type = object._type;
+    _hp = object._hp;
+    return (*this);
+}
+
+Enemy::Enemy(const Enemy &object) : _hp(object._hp), _type(object._type)
+{
 }
 
 void Enemy::takeDamage(int i)
 {
 	if (i >= 0)
 		_hp -= i;
+	if (_hp < 0)
+		delete this;
 }

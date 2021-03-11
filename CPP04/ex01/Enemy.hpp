@@ -7,16 +7,14 @@
 class Enemy
 {
 	private:
-		std::string const &_type;
-		std::string const &_name;
+		std::string _type;
 		int	_hp;
 	public:
-		Enemy(std::string const & , int, std::string const &);
+		Enemy(std::string const & , int);
 		Enemy(const Enemy&);
 		Enemy &operator=(const Enemy&);
-		virtual ~Enemy();
+		virtual ~Enemy() {return;};
 		std::string const &getType() const { return _type; };
-		std::string const &getName() const { return _name; };
 		int getHP() const { return _hp; };
 		virtual void takeDamage(int);
 };

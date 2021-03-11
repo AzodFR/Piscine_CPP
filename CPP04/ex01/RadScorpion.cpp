@@ -1,11 +1,11 @@
 #include "RadScorpion.hpp"
 
-RadScorpion::RadScorpion(std::string const &name) : Enemy(name, 80, "Rad Scorpion")
+RadScorpion::RadScorpion(void) : Enemy("Rad Scorpion", 80)
 {
-	std::cout << "<\e[91m" << name << "\e[0m> * click click click *" << std::endl;
+	std::cout << "* click click click *" << std::endl;
 }
 
 RadScorpion::~RadScorpion(void)
 {
-	std::cout << "<\e[91m" << getName() << "\e[0m> * SPROTCH *" << std::endl;
+	std::cout << "* SPROTCH *" << std::endl;
 }

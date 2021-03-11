@@ -1,13 +1,13 @@
 #include "SuperMutant.hpp"
 
-SuperMutant::SuperMutant(std::string const &name) : Enemy(name, 170, "Super Mutant")
+SuperMutant::SuperMutant(void) : Enemy("Super Mutant", 170)
 {
-	std::cout << "<\e[91m" << name << "\e[0m> Gaaah. Me want smash heads!" << std::endl;
+	std::cout << " Gaaah. Me want smash heads!" << std::endl;
 }
 
 SuperMutant::~SuperMutant(void)
 {
-	std::cout << "<\e[91m" << getName() << "\e[0m> Aaargh..." << std::endl;
+	std::cout << "Aaargh..." << std::endl;
 }
 
 void SuperMutant::takeDamage(int i)

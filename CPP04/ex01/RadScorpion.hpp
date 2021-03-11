@@ -6,7 +6,7 @@
 class RadScorpion : public Enemy
 {
 	public:
-		RadScorpion(std::string const &);
+		RadScorpion(void);
 		virtual ~RadScorpion(void);
 };
 #endif
