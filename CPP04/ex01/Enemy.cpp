@@ -19,6 +19,6 @@ void Enemy::takeDamage(int i)
 {
 	if (i >= 0)
 		_hp -= i;
-	if (_hp < 0)
+	if (_hp <= 0)
 		delete this;
 }
