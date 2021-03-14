@@ -12,8 +12,9 @@ class Squad : public ISquad
 		Squad();
 		Squad(Squad&);
 		Squad &operator=(Squad&);
-		int getCount();
-		ISpaceMarine* getUnit(int);
+		~Squad();
+		int getCount() const;
+		ISpaceMarine* getUnit(int) const;
 		int push(ISpaceMarine*);
 };
 #endif

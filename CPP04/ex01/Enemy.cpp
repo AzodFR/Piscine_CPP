@@ -1,6 +1,6 @@
 #include "Enemy.hpp"
 
-Enemy::Enemy(const std::string &type, int hp) : _hp(hp), _type(type)
+Enemy::Enemy(const std::string &type, int hp) : _type(type), _hp(hp)
 {
 }
     
@@ -11,7 +11,7 @@ Enemy &Enemy::operator=(const Enemy &object)
     return (*this);
 }
 
-Enemy::Enemy(const Enemy &object) : _hp(object._hp), _type(object._type)
+Enemy::Enemy(const Enemy &object) : _type(object._type), _hp(object._hp)
 {
 }
 

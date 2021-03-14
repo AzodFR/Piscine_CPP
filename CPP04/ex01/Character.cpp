@@ -10,6 +10,8 @@ Character::Character(const Character&object) : _name(object.getName()), _ap(obje
 
 Character &Character::operator=(const Character &object)
 {
+    _ap = object.getAp();
+    _weapon = object.getWeapon();
 	return (*this);
 }
 

@@ -13,7 +13,7 @@ class Character
 		AWeapon *_weapon;
 		Character();
 	public:
-	Character(std::string const & name);
+	Character(std::string const& name);
 	Character(const Character&);
 	Character &operator=(const Character&);
 	virtual ~Character() {return;};
