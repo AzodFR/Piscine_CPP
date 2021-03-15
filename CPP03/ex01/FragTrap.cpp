@@ -104,7 +104,7 @@ void FragTrap::takeDamage(unsigned int amount)
 
 void FragTrap::beRepaired(unsigned int amount)
 {
-	if (this->hp + amount <= this->max_hp)
+	if (this->hp + (int)amount <= this->max_hp)
 		this->hp += amount;
 	else
 		this->hp = this->max_hp;
