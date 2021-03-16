@@ -3,26 +3,37 @@
 
 Character::Character(std::string const & name) : _name(name)
 {
-
 	for (int i = 0; i < 4; i++)
 	{
 		_bag[i] = NULL;
 	}
 }
 
-Character::Character(const Character &object) : _name(object.getName())
+Character::Character(Character &object) : _name(object.getName())
 {
 	for (int i = 0; i < 4; i++)
 	{
-		_bag[i] = object.getItem(i);
+		if (object.getItem(i))
+		{
+			_bag[i] = object.getItem(i);
+			object._bag[i] = NULL;
+		}
+		else
+			_bag[i] = NULL;
 	}
 }
 
-Character &Character::operator=(const Character &object)
+Character &Character::operator=(Character &object)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		_bag[i] = object.getItem(i);
+		if (object.getItem(i))
+		{
+			_bag[i] = object.getItem(i);
+			object._bag[i] = NULL;
+		}
+		else
+			_bag[i] = NULL;
 	}
 	_name = object.getName();
 	return *this;
@@ -30,6 +41,11 @@ Character &Character::operator=(const Character &object)
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (getItem(i))
+			delete _bag[i];
+	}
 }
 
 void Character::equip(AMateria *item)
@@ -53,6 +69,7 @@ void Character::unequip(int index)
 	if (_bag[index] == NULL)
 		return ;
 	_bag[index] = NULL;
+	std::cout << "delete: " << index << std::endl;
 }
 
 void Character::use(int index, ICharacter &target)

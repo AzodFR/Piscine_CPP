@@ -11,9 +11,10 @@ class Character : public ICharacter
 		std::string _name;
 	public:
 		Character(std::string const &);
-		Character(const Character &);
-        Character &operator=(const Character &);
+		Character(Character &);
+        Character &operator=(Character &);
 		AMateria *getItem(int index) const{ return _bag[index] ;};
+		void delItem(int index) const { delete _bag[index];};
 		std::string const & getName() const { return _name;};
 		~Character();
 		void equip(AMateria *);
