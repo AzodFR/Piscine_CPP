@@ -5,6 +5,8 @@
 
 class Knight : public Victim
 {
+	private:
+		Knight();
 	public:
 		Knight(std::string const &);
 		virtual ~Knight(void);

@@ -8,6 +8,7 @@ class Victim
 {
 	protected:
 		std::string _name;
+		Victim();
 	public:
 		Victim(std::string const &);
 		virtual ~Victim(void);

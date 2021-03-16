@@ -5,6 +5,8 @@
 
 class Peon : public Victim
 {
+	private:
+		Peon();
 	public:
 		Peon(std::string const &);
 		virtual ~Peon(void);

@@ -9,6 +9,7 @@ class Enemy
 	private:
 		std::string _type;
 		int	_hp;
+		Enemy();
 	public:
 		Enemy(std::string const & , int);
 		Enemy(const Enemy&);
