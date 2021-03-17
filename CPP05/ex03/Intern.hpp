@@ -15,6 +15,13 @@ class Intern
         Intern();
         ~Intern();
         Form *makeForm(std::string const &, std::string const &);
+        class UnrecognizedInternFormException : public std::exception
+        {
+            virtual const char* what() const throw()
+            {
+                return ("\e[91mType of form unrecognized\e[0m");
+            }
+        };
 };
 
 #endif

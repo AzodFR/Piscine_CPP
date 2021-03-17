@@ -1,8 +1,8 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const &name) : Form(_name, 72, 45) , _target(name){}
+RobotomyRequestForm::RobotomyRequestForm(std::string const &name) : Form("Robotomy", 72, 45) , _target(name){}
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &obj): Form(_name, 72, 45) , _target(obj.getTarget()){}
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &obj): Form("Robotomy", 72, 45) , _target(obj.getTarget()){}
 
 RobotomyRequestForm::~RobotomyRequestForm(){}
 

@@ -14,7 +14,7 @@ Form *Intern::makeForm(std::string const &name, std::string const &target)
             std::cout << "Intern create the " << name << "'s form" << std::endl;;
            return ((this->*command[i])(target));
         }
-    std::cerr << "Type of form: \e[93m" << name << "\e[0m is unrecognized" << std::endl;
+    throw UnrecognizedInternFormException();
     return (NULL);
 }
 

@@ -7,12 +7,16 @@ int main()
         Bureaucrat me("me", 1);
         Form *shrub;
 
-        shrub = estelle.makeForm("shrub", "theo");
-        if (shrub)
+        try
         {
+            shrub = estelle.makeForm("shrub", "theo");
             me.SignForm(*shrub);
             me.executeForm(*shrub);
             delete shrub;
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
         }
     }
         { //PARDON
@@ -20,12 +24,16 @@ int main()
         Bureaucrat me("me", 1);
         Form *pardon;
 
-        pardon = estelle.makeForm("pardon", "theo");
-        if (pardon)
+        try
         {
+            pardon = estelle.makeForm("pardon", "theo");
             me.SignForm(*pardon);
             me.executeForm(*pardon);
             delete pardon;
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
         }
     }
     { //ROBOT
@@ -33,12 +41,17 @@ int main()
         Bureaucrat me("me", 1);
         Form *robot;
 
-        robot = estelle.makeForm("robotomise", "theo");
-        if (robot)
+
+        try
         {
+            robot = estelle.makeForm("robotomise", "theo");
             me.SignForm(*robot);
             me.executeForm(*robot);
             delete robot;
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
         }
     }
     { //Unknow
@@ -46,12 +59,16 @@ int main()
         Bureaucrat me("me", 1);
         Form *root;
 
-        root = estelle.makeForm("root", "theo");
-        if (root)
+        try
         {
+            root = estelle.makeForm("root", "theo");
             me.SignForm(*root);
             me.executeForm(*root);
             delete root;
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
         }
     }
 

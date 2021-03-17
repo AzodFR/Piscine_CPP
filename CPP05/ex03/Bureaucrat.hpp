@@ -22,7 +22,7 @@ class Bureaucrat
         Bureaucrat &operator++();
         Bureaucrat &operator--();
         void SignForm(Form &);
-        void executeForm(Form const &);
+        void executeForm(Form &);
         class GradeTooHighException : public std::exception
         {
             virtual const char* what() const throw()

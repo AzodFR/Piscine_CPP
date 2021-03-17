@@ -1,0 +1,93 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+
+void to_char(long double a, std::string text)
+{
+	std::cout << "char: ";
+	if (text == "nan" || text == "nanf" || text == "-inf" || text == "-inff" ||text == "+inf" || text == "+inff")
+		std::cout << "impossible" << std::endl;
+	else if (a > 31 && a < 127)
+		std::cout << "\"" << static_cast<char>(a) << "\"" << std::endl;
+	else
+		std::cout << "Non displayable"  << std::endl;
+}
+
+void to_int(long double a, std::string text)
+{
+
+
+	std::cout << "int: ";
+	if (text == "nan" || text == "nanf" || text == "-inf" || text == "-inff" ||text == "+inf" || text == "+inff")
+		std::cout << "impossible"<< std::endl;
+	else
+		std::cout << static_cast<int>(a) << std::endl;
+}
+
+void to_float(long double a, std::string text)
+{
+	std::cout << "float: ";
+	if (text == "nan" || text == "nanf")
+		std::cout << "nanff" << std::endl;
+	else if (text == "-inf" || text == "-inff")
+		std::cout << "-inff" << std::endl;
+	else if (text == "+inf" || text == "+inff")
+		std::cout << "+inff" << std::endl;
+	else
+		std::cout<< std::fixed << std::setprecision(1) << static_cast<float>(a) << "f" <<  std::endl;
+}
+
+void to_double(long double a, std::string text)
+{
+	std::cout << "double: ";
+	if (text == "nan" || text == "nanf")
+		std::cout << "nanf" << std::endl;
+	else if (text == "-inf" || text == "-inff")
+		std::cout << "-inf" << std::endl;
+	else if (text == "+inf" || text == "+inff")
+		std::cout << "+inf" << std::endl;
+	else
+		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(a) << std::endl;
+}
+
+int is_all_alpha(char *av)
+{
+	int j = std::strlen(av);
+	for (int i = 0; i < j; i++)
+	{
+		if (!((av[i] >= 65 && av[i] <= 90) || (av[i] >= 97 && av[i] <= 122)))
+			return (0);
+	}
+	return (1);
+}
+
+int main(int ac, char **av)
+{
+	long double arg;
+	arg = std::atof(av[1]);
+	
+	
+	if (ac == 2)
+	{
+		if (std::strlen(av[1]) > 1 && is_all_alpha(av[1]))
+		{
+			std::cout << "char: impossible" << std::endl
+			<< "int: impossible" << std::endl <<
+			"float: impossible" << std::endl
+			<< "double: impossible" << std::endl;
+			return (0);
+		}
+		
+		to_char(arg, av[1]);
+		to_int(arg, av[1]);
+		to_float(arg, av[1]);
+		to_double(arg, av[1]);
+		return (0);
+	}
+	else
+	{
+		std::cout << "\e[91mPlease provide one and only one argument\e[0m";
+		return (1);
+	}
+}

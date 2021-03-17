@@ -45,6 +45,7 @@ int main()
 	std::cout << "Curse clone's xp after you: " << tmp_clone->getXP() << std::endl;
 	me->use(2, *bob);
 	std::cout << "Curse clone's xp after me (didn't have the item anymore): " << tmp_clone->getXP() << std::endl;
+
 	me->use(0, *bob);
 	std::cout << "me can't use 0" << std::endl;
 	you->use(0, *bob);

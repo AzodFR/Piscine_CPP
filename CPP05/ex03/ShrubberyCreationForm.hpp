@@ -8,7 +8,6 @@ class ShrubberyCreationForm : public Form
     private:
         ShrubberyCreationForm();
         std::string const &_target;
-        std::string const _name = "Shrubbery";
     public:
         ShrubberyCreationForm(std::string const &);
         ShrubberyCreationForm(ShrubberyCreationForm const &);

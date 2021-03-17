@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form(std::string name, int cansign, int canexec) : _name(name), _signed(false) , _canSign(cansign), _canExec(canexec)
+Form::Form(std::string const &name, int cansign, int canexec) : _name(name), _signed(false) , _canSign(cansign), _canExec(canexec)
 {
     if (cansign < 1 || canexec < 1)
         throw GradeTooHighException();

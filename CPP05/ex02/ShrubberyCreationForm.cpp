@@ -2,9 +2,9 @@
 #include <fstream>
 #include <sstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &name) : Form(_name, 145, 137) , _target(name){}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &name) : Form("Shrubbery", 145, 137) , _target(name){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &obj): Form(_name, 145, 137) , _target(obj.getTarget()){}
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &obj): Form("Shrubbery", 145, 137) , _target(obj.getTarget()){}
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
 

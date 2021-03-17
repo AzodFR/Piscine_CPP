@@ -8,10 +8,10 @@
 class Form
 {
     private:
-        std::string const &_name;
+        std::string const _name;
         bool               _signed;
-        int  const         _canSign;
-        int  const         _canExec;
+        int           _canSign;
+        int           _canExec;
         Form();
     public:
         Form(std::string const &, int const, int const);
@@ -19,9 +19,9 @@ class Form
         virtual ~Form();
         Form &operator=(Form const &);
         void beSigned(Bureaucrat const &);
-        std::string const &getName() const {return _name;};
-        int const getCanSign() const {return _canSign;};
-        int const getCanExec() const {return _canExec;};
+        std::string const getName() const {return _name;};
+        int getCanSign() const {return _canSign;};
+        int getCanExec() const {return _canExec;};
         bool isSigned() const {return _signed;};
         virtual void execute(Bureaucrat const &) const = 0;
         class GradeTooHighException : public std::exception

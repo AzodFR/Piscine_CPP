@@ -8,7 +8,6 @@ class RobotomyRequestForm : public Form
     private:
         RobotomyRequestForm();
         std::string const &_target;
-        std::string const _name = "Robotomy";
     public:
         RobotomyRequestForm(std::string const &);
         RobotomyRequestForm(RobotomyRequestForm const &);

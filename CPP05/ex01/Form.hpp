@@ -8,18 +8,18 @@
 class Form
 {
     private:
-        std::string const &_name;
+        std::string const _name;
         bool               _signed;
         int          _canSign;
         int           _canExec;
         Form();
     public:
-        Form(std::string , int, int);
+        Form(std::string const &, int, int);
         Form(Form const &);
-        virtual ~Form() = 0;
+        virtual ~Form();
         Form &operator=(Form const &);
         void beSigned(Bureaucrat const &);
-        std::string const &getName() const {return _name;};
+        std::string const getName() const {return _name;};
         int getCanSign() const {return _canSign;};
         int getCanExec() const {return _canExec;};
         bool isSigned() const {return _signed;};
