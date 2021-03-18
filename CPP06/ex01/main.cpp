@@ -43,9 +43,10 @@ int randomInt(int n)
     return std::atoi(ret.c_str());
 }
 
-Data *deserialize(unsigned char *s)
+Data *deserialize(void *v)
 {
     Data *d = new Data;
+    unsigned char *s = (unsigned char *)v;
 
     d->s1 = "";
     d->s2 = 0;

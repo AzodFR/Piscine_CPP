@@ -1,4 +1,4 @@
-NAME = serialize
+NAME = ex02
 
 CC = clang++
 
