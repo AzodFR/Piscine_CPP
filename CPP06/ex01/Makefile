@@ -1,8 +1,8 @@
-NAME = convert
+NAME = serialize
 
 CC = clang++
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = 
 
 FILES = main.cpp
 

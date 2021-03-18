@@ -51,10 +51,9 @@ void to_double(long double a, std::string text)
 		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(a) << std::endl;
 }
 
-int is_all_alpha(char *av)
+int is_all_alpha_n(char *av, int n)
 {
-	int j = std::strlen(av);
-	for (int i = 0; i < j; i++)
+	for (int i = 0; av[i] && i < n; i++)
 	{
 		if (!((av[i] >= 65 && av[i] <= 90) || (av[i] >= 97 && av[i] <= 122)))
 			return (0);
@@ -65,20 +64,15 @@ int is_all_alpha(char *av)
 int main(int ac, char **av)
 {
 	long double arg;
-	arg = std::atof(av[1]);
-	
-	
+	char *p;
 	if (ac == 2)
 	{
-		if (std::strlen(av[1]) > 1 && is_all_alpha(av[1]))
-		{
-			std::cout << "char: impossible" << std::endl
-			<< "int: impossible" << std::endl <<
-			"float: impossible" << std::endl
-			<< "double: impossible" << std::endl;
-			return (0);
-		}
 		
+		const char* test = av[1];
+		if (is_all_alpha_n(av[1], 1) && !std::strtod(test, &p))
+			arg = p[0];
+		else
+			arg = std::atof(av[1]);
 		to_char(arg, av[1]);
 		to_int(arg, av[1]);
 		to_float(arg, av[1]);
@@ -87,7 +81,7 @@ int main(int ac, char **av)
 	}
 	else
 	{
-		std::cout << "\e[91mPlease provide one and only one argument\e[0m";
+		std::cout << "\e[91mPlease provide one and only one argument\e[0m" << std::endl;
 		return (1);
 	}
 }
