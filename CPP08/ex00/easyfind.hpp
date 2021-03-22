@@ -1,18 +1,36 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
-template<typename T>
-int easyfind(T *array, int n)
+#include <iostream>
+
+
+class NotFoundException : public std::exception
 {
-	try
+	virtual const char* what() const throw()
 	{
-		/* code */
+		return ("\e[91mValue not found !\e[0m");
 	}
-	catch(const std::exception& e)
+};
+
+class EmptyContainerException : public std::exception
+{
+	virtual const char* what() const throw()
 	{
-		std::cerr << e.what() << '\n';
+		return ("\e[91mThe container is empty !\e[0m");
 	}
-	
+};
+
+template <typename T>
+int easyfind(T array, const int n)
+{
+	typename T::iterator i;
+
+	if (!array.size())
+		throw(EmptyContainerException());
+	i = std::find(array.begin(), array.end(), n);
+	if (i == array.end())
+		throw(NotFoundException());
+	return (i - array.begin());
 }
 
 #endif
