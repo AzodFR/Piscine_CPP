@@ -46,7 +46,7 @@ int randomInt(int n)
 Data *deserialize(void *v)
 {
     Data *d = new Data;
-    unsigned char *s = (unsigned char *)v;
+    unsigned char *s = reinterpret_cast<unsigned char *>(v);
 
     d->s1 = "";
     d->s2 = 0;
@@ -55,7 +55,7 @@ Data *deserialize(void *v)
     c[1] = 0;
     for(int i = 0; i < 8; i++)
     {
-        c[0] =  s[i];
+        c[0] =  reinterpret_cast<unsigned char>(s[i]);
         d->s1 += c;
     }
     for(int i = 8; i < 12; i++)
@@ -64,7 +64,7 @@ Data *deserialize(void *v)
     }
     for(int i = 12; i < 20; i++)
     {
-        c[0] = s[i];
+        c[0] =  reinterpret_cast<unsigned char>(s[i]);
         d->s3 += c;
     }
     return (d);
@@ -95,7 +95,7 @@ int main(void)
     Data *d;
     unsigned char *raw;
 
-   raw = (unsigned char *)(serialize());
+   raw = reinterpret_cast<unsigned char *>(serialize());
    d = deserialize(raw);
    
    std::cout << std::endl << "Deserialize: " << std::endl;

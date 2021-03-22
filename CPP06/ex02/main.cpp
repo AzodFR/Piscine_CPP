@@ -34,7 +34,7 @@ void identify_from_pointer(Base * p)
 		{
 			if(!dynamic_cast<C *>(p))
 			{
-				std::err << "Error of cast !";
+				std::cerr << "Error of cast !";
 			}
 			else
 				std::cout << "C";

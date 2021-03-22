@@ -64,7 +64,7 @@ int is_all_alpha_n(char *av, int n)
 {
 	for (int i = 0; av[i] && i < n; i++)
 	{
-		if (!((av[i] >= 65 && av[i] <= 90) || (av[i] >= 97 && av[i] <= 122)))
+		if (av[i] >= '0' && av[i] <= '9')
 			return (0);
 	}
 	return (1);
