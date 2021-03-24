@@ -12,6 +12,21 @@ int main()
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
+	{ // MAX MIN
+		Span sp = Span(2);
+		sp.addNumber(INT32_MAX);
+		sp.addNumber(INT32_MIN);
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	{ // Negative
+		Span sp = Span(3);
+		sp.addNumber(-8);
+		sp.addNumber(-5);
+		sp.addNumber(10);
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
 	{ // Invalid construction
 		try
 		{
@@ -19,7 +34,7 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	{ // Max size
@@ -31,7 +46,7 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	{ // Dulicate number
@@ -44,7 +59,7 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	{ // 1 Element compare
@@ -56,7 +71,7 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	{ //Empty
@@ -67,7 +82,7 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 
@@ -82,7 +97,7 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	{ // Too large range
@@ -95,7 +110,7 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	{ // Duplicate elements
@@ -109,7 +124,7 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	{ // Construct by copy
@@ -121,11 +136,11 @@ int main()
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp2.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
-			std::cout << sp2.longestSpan() << std::endl;
+			std::cout << sp2.longestSpan() << std::endl << std::endl;
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	{ // Construct by assignation
@@ -137,11 +152,11 @@ int main()
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp2.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
-			std::cout << sp2.longestSpan() << std::endl;
+			std::cout << sp2.longestSpan() << std::endl << std::endl;
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	{ // Construct by assignation
@@ -156,7 +171,7 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cerr << e.what() << std::endl << std::endl;
 		}
 	}
 	return (0);	

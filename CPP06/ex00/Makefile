@@ -6,12 +6,15 @@ FLAGS = -Wall -Wextra -Werror
 
 FILES = main.cpp
 
+HPP = whatever.hpp
+
 RM = rm -f
 
-all: $(NAME)
 
-$(NAME): $(FILES:.c=.o)
+$(NAME): $(FILES:.c=.o) $(HPP)
 	$(CC) $(FLAGS) $(FILES) -o $(NAME)
+
+all: $(NAME)
 
 fclean:
 	$(RM) $(NAME)

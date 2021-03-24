@@ -15,7 +15,7 @@ int get_prec(std::string text)
 void to_char(long double a, std::string text)
 {
 	std::cout << "char: ";
-	if (text == "nan" || text == "nanf" || text == "-inf" || text == "-inff" ||text == "+inf" || text == "+inff" || text == "inf")
+	if (text == "nan" || text == "nanf" || text == "-inf" || text == "-inff" ||text == "+inf" || text == "+inff" || text == "inf" || text == "inf+" || text == "inf-")
 		std::cout << "impossible" << std::endl;
 	else if (a > 31 && a < 127)
 		std::cout << "\"" << static_cast<char>(a) << "\"" << std::endl;
@@ -28,7 +28,7 @@ void to_int(long double a, std::string text)
 
 
 	std::cout << "int: ";
-	if (text == "nan" || text == "nanf" || text == "-inf" || text == "-inff" ||text == "+inf" || text == "+inff" || text == "inf")
+	if (text == "nan" || text == "nanf" || text == "-inf" || text == "-inff" ||text == "+inf" || text == "+inff" || text == "inf" || text == "inf+" || text == "inf-")
 		std::cout << "impossible"<< std::endl;
 	else
 		std::cout << static_cast<int>(a) << std::endl;

@@ -35,11 +35,12 @@ int replace(char **av)
     std::string str = text.str();
     std::string str_search = av[2];
     std::string str_replace = av[3];
+	std::string name = av[1];
     while ((pos = str.find(str_search)) != EOF)
         str.replace(pos, std::string(str_search).length(), str_replace);
     file.close();
 
-    std::ofstream out_file(av[1]);
+    std::ofstream out_file(name + ".replace");
     out_file << str;     
     return (1);
 }

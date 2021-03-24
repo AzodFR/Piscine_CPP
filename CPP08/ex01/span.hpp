@@ -17,8 +17,8 @@ class Span
 		~Span();
 		void addNumber(int);
 		void addNumber(int, int);
-		int longestSpan();
-		int shortestSpan();
+		long longestSpan();
+		long shortestSpan();
 		class AlreadyInException : public std::exception
 		{
 			virtual const char* what() const throw()

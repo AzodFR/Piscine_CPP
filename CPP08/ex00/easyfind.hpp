@@ -21,7 +21,7 @@ class EmptyContainerException : public std::exception
 };
 
 template <typename T>
-int easyfind(T array, const int n)
+void easyfind(T array, const int n)
 {
 	typename T::iterator i;
 
@@ -30,7 +30,6 @@ int easyfind(T array, const int n)
 	i = std::find(array.begin(), array.end(), n);
 	if (i == array.end())
 		throw(NotFoundException());
-	return (i - array.begin());
 }
 
 #endif

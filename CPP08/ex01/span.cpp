@@ -38,39 +38,41 @@ void Span::addNumber(int start, int end)
 	}
 }
 
-int Span::longestSpan()
+long Span::longestSpan()
 {
 	if (!_set.size())
 		throw EmptyException();
 	if (_set.size() == 1)
 		throw SingleElementException();
-	int begin = *_set.begin();
-	int end = *--_set.end();
+	long begin = *_set.begin();
+	long end = *--_set.end();
 	return (end - begin);
 }
 
 
 
-int Span::shortestSpan()
+long Span::shortestSpan()
 {
 	if (!_set.size())
 		throw EmptyException();
 	if (_set.size() == 1)
 		throw SingleElementException();
-	int prec;
-	int diff;
-	for (std::set<int>::iterator it = _set.begin(); it != _set.end(); ++it)
+
+	long prec;
+	long diff;
+	for (std::set<int>::iterator it = _set.begin(); it != _set.end(); it++)
 	{
 		if (it == _set.begin())
 		{
 			prec = *it;
-			diff = prec;
+			it++;
+			diff = std::abs(static_cast<long>(*it) - static_cast<long>(prec));
 		}
 		else
 		{
-			if (*it - prec < diff)
-				diff = *it - prec;
-			prec = *it;
+			if (diff > std::abs(static_cast<long>(*it) - static_cast<long>(prec)))
+				diff = std::abs(static_cast<long>(*it) - static_cast<long>(prec));
+			prec = *(it);
 		}
 	}
 	return (diff);
