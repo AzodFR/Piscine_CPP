@@ -11,7 +11,7 @@ HPP = whatever.hpp
 RM = rm -f
 
 
-$(NAME): $(FILES:.c=.o) $(HPP)
+$(NAME): $(FILES:.cpp=.o) $(HPP)
 	$(CC) $(FLAGS) $(FILES) -o $(NAME)
 
 all: $(NAME)

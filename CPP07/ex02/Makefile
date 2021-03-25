@@ -10,7 +10,7 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(FILES:.c=.o)
+$(NAME): $(FILES:.cpp=.o)
 	$(CC) $(FLAGS) $(FILES) -o $(NAME)
 
 fclean:
